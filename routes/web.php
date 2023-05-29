@@ -1,6 +1,9 @@
 <?php
 
+namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Route;
+use app\Http\Controllers\ArticleController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/articles', 'App\Http\Controllers\ArticleController@index')->name('articles.index');
+
+Route::get('/articles/{code}', 'App\Http\Controllers\ArticleController@filterByTag')->name('articles.code');
